@@ -36,4 +36,7 @@ class vehiculo_api_view(APIView):
         )
 
         return Response(vehiculo_consultado,status=status.HTTP_200_OK)
+    def delete(self, request, pkid):
+        vehiculo_consultado=vehiculo.objects.filter(id=pkid).delete()
+        return Response(vehiculo_consultado,status=status.HTTP_200_OK)
         
